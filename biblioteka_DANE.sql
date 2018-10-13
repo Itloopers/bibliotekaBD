@@ -1,0 +1,93 @@
+--DANE--
+insert into kraj(kraj) values('Polska');
+insert into kraj(kraj) values('USA');
+insert into kraj(kraj) values('Francja');
+insert into kraj(kraj) values('Rosja');
+insert into kraj(kraj) values('Niemcy');
+insert into kraj(kraj) values('Anglia');
+insert into kraj(kraj) values('Izrael');
+insert into kraj(kraj) values('Czechy');
+
+insert into rodzaj(nazwa) values('komiks');
+insert into rodzaj(nazwa) values('literatura popularno/naukowa');
+insert into rodzaj(nazwa) values('dla dzieci');
+insert into rodzaj(nazwa) values('przygodowa');
+insert into rodzaj(nazwa) values('informatyka');
+insert into rodzaj(nazwa) values('klasyka');
+insert into rodzaj(nazwa) values('fikcja');
+insert into rodzaj(nazwa) values('literatura piekna');
+
+insert into jezyk(jezyk) values('polski');
+insert into jezyk(jezyk) values('angielski');
+insert into jezyk(jezyk) values('niemiecki');
+commit;
+
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('Johann','Wolfgang','von Goethe',5);
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('George',null,'Orwell',6);
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('Jeanette',null,'Winterson',6);
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('Neil',null,'Gaiman',6);
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('Etgar',null,'Keret',7);
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('Cay',null,'Horstmann',2);
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('Lewis',null,'Carroll',5);
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('Hans','Christian','Andersen',5);
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('Franz',null,'Kafka',8);
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('Mike',null,'Dringenberg',3);
+insert into autor(imie,drugie_imie,nazwisko,kraj) values('Nicholas',null,'Carr',2);
+commit;
+
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Cierpienia młodego Wertera',1,2011,'9788376236247',6,1,52);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Folwark zwierzęcy',2,2017,'9788328707115',6,1,223);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Animal Farm',2,2014,'9780141036137',6,2,183);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('The Lion and the Unicorn',2,2018,'9780241315682',7,2,62);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('The Lion, The Unicorn and Me',3,2011,'9781407109053',3,2,62);
+insert into ksiazka(tytul,autor,autor_2,rok,isbn,rodzaj,jezyk,ilosc_stron) values('42 listy miłosne',4,5,2011,'9788374696739',8,1,312);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Java 9 Przewodnik doświadczonego programisty',6,2018,'9788328342507',5,1,463);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Java Techniki zaawansowane',6,2017,'9788328334793',5,1,983);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Alice im Wunderland',7,2009,'9783866473812',3,3,143);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Die Schneekönigin',8,2018,'9783730606667',3,3,96);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Andersens Märchen',8,2018,'9783866475465',3,3,851);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Franz Kafka - Gesammelte Werke',9,2012,'9783866478497',6,3,986);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Proces',9,2017,'9788377915950',6,1,192);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Opowieści i przypowieści',9,2016,'9788364822513',8,1,630);
+insert into ksiazka(tytul,autor,autor_2,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Sandman: Dom lalki',4,10,2009,'9788323725480',1,1,256);
+insert into ksiazka(tytul,autor,rok,isbn,rodzaj,jezyk,ilosc_stron) values('Płytki umysł. Jak internet wpływa na nasz mózg',4,2012,'9788324641383',2,1,280);
+commit;
+
+insert into uzytkownik(imie,nazwisko,rola,haslo) values('Michal', 'Jankowski','nowy czytelnik',null);
+insert into uzytkownik(imie,nazwisko,rola,haslo) values('Daria', 'Jankowska','nowy czytelnik',null);
+insert into uzytkownik(imie,nazwisko,rola,haslo) values('Maria', 'Adamczyk','nowy czytelnik',null);
+insert into uzytkownik(imie,nazwisko,rola,haslo) values('Daria', 'Michalczyk','nowy czytelnik',null);
+insert into uzytkownik(imie,nazwisko,rola,haslo) values('Adam', 'Berek','nowy czytelnik',null);
+insert into uzytkownik(imie,nazwisko,rola,haslo) values('Robert', 'Adamczyk','obsluga','123456');
+insert into uzytkownik(imie,nazwisko,rola,haslo) values('Daria', 'Nowak','obsluga','654321');
+insert into uzytkownik(imie,nazwisko,rola,haslo) values('Adam', 'Znany','obsluga','pass123');
+commit;
+
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(1,5,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(2,4,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(3,5,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(4,3,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(5,5,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(6,1,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(7,5,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(8,2,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(9,5,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(10,1,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(11,5,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(12,5,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(13,5,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(14,6,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(15,5,0);
+insert into ksiazki_zasoby(ksiazka,dostepne,wypozyczone) values(16,3,0);
+commit;
+
+select wypozycz_ksiazke(1,1);
+select wypozycz_ksiazke(2,2);
+select wypozycz_ksiazke(3,3);
+select wypozycz_ksiazke(4,4);
+select wypozycz_ksiazke(5,5);
+select wypozycz_ksiazke(1,2);
+select wypozycz_ksiazke(2,3);
+select wypozycz_ksiazke(3,4);
+select wypozycz_ksiazke(4,5);
+select wypozycz_ksiazke(5,6);
