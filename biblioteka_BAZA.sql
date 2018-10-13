@@ -280,14 +280,22 @@ before insert on wypozyczenia
 for row
 execute procedure sprawdz_wypozyczone();
 
---4 Akualizacja zasobow po wypozyczeniu.
+--4 Aktualizacja zasobow po wypozyczeniu(insert), zwroceniu(update)
+create trigger zasoby_ksiazki_wypozycz_zwroc_ksiazke_trigger
+after insert or update on wypozyczenia
+for row
+execute procedure zaaktualizuj_ksiazki_zasoby();
+
+/*depreciated
+--4 Akualizacja zasobow po wypozyczeniu. polaczone w (zasoby_ksiazki_wypozycz_zwroc_ksiazke_trigger)
 create trigger zasoby_ksiazki_wypozycz_ksiazke_trigger
 after insert on wypozyczenia
 for row
 execute procedure zaaktualizuj_ksiazki_zasoby();
 
---5 Aktualizacja zasobow po zwroceniu.
+--5 Aktualizacja zasobow po zwroceniu. polaczone w (zasoby_ksiazki_wypozycz_zwroc_ksiazke_trigger)
 create trigger zasoby_ksiazki_zwroc_ksiazke_trigger
 after update on wypozyczenia
 for row
 execute procedure zaaktualizuj_ksiazki_zasoby();
+*/
