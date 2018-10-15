@@ -53,7 +53,7 @@ create table ksiazka(
 	tytul varchar(255) not null,
 	autor integer not null,
 	autor_2 integer,
-	rok integer,
+	rok integer not null,
 	isbn varchar(13),
 	rodzaj integer,
 	jezyk integer,
@@ -135,6 +135,10 @@ declare
 	suma int;
 	cyfra int;
 begin
+	if new.isbn is null then
+		return new;
+	end if;
+
 	wartoscKontrolna = right(new.isbn,1) as integer;
 	suma = 0;
 	
@@ -299,3 +303,24 @@ after update on wypozyczenia
 for row
 execute procedure zaaktualizuj_ksiazki_zasoby();
 */
+
+--widoki 2
+--Prosty widok ksiązek.
+create or replace view lista_ksiazek as
+select k.id, k.tytul, k.rok, wyswietl_autorow(a.imie,a.drugie_imie,a.nazwisko,a2.imie,a2.drugie_imie,a2.nazwisko) as autor, 
+	j.jezyk, r.nazwa as rodzaj, k.isbn, k.ilosc_stron
+from ksiazka k left join autor a2 on k.autor_2=a2.id, autor a, jezyk j, rodzaj r
+where k.autor = a.id and k.jezyk = j.id and k.rodzaj = r.id
+order by tytul;
+
+--Pełny widok ksiazek.
+create or replace view pełna_lista_ksiazek as
+select k.id, k.tytul, k.rok, k.autor as autor_1, k.autor_2, wyswietl_autorow(a.imie,a.drugie_imie,a.nazwisko,a2.imie,a2.drugie_imie,a2.nazwisko) as "autor 1,2",
+	k.jezyk as id_jezyk, j.jezyk, k.rodzaj as id_rodzaj, r.nazwa as rodzaj, k.isbn, k.ilosc_stron
+from ksiazka k 
+	left join autor a2 on k.autor_2=a2.id
+	left join rodzaj r on k.rodzaj=r.id
+	left join jezyk j on k.jezyk=j.id,
+	autor a
+where k.autor = a.id
+order by tytul asc;
