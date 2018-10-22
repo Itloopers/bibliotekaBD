@@ -25,7 +25,6 @@ create table rodzaj (
 
 -- Tworzy typ dla hasła użytkownika.
 CREATE EXTENSION chkpass;
-
 create table uzytkownik(
 	id serial not null,
 	imie varchar(100) not null,
@@ -178,7 +177,7 @@ begin
 	end if;
 end;
 $BODY$
-language 'plpgsql';
+language plpgsql;
 
 --5 Wypozycz ksiażke (uzytkownik.id,) czas pobierany z bazy.
 create or replace function wypozycz_ksiazke(uzytkownik integer, ksiazkaId integer) returns void as
@@ -269,7 +268,7 @@ language 'plpgsql';
 --1 trigger dla generowania nazwy dla uzytkownika.
 create trigger generuj_nazwe_trigger
 after insert on uzytkownik
-for each row
+for row
 execute procedure generuj_nazwe();
 
 --2 Sprawdzenie isbn podczas dodawania ksiazki.
